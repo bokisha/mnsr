@@ -2,10 +2,10 @@
 
 clear
 
-pdflatex TemaImePrezime.tex
-bibtex TemaImePrezime.tex
-pdflatex TemaImePrezime.tex
-pdflatex TemaImePrezime.tex
+pdflatex MilenkovicNestorovicSojcic.tex
+bibtex MilenkovicNestorovicSojcic.tex
+pdflatex MilenkovicNestorovicSojcic.tex
+pdflatex MilenkovicNestorovicSojcic.tex
 
 echo "PDF je izgenerisan"
 echo
