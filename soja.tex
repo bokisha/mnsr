@@ -13,7 +13,7 @@ Pravljenje build job-a je veoma jednostavno i ono podrazumeva razna podešavanja
 \item Copy existing job - projekat može da bude i kopija već postojećeg projekta koji zahteva neke promene u konfigurisanju
 \end{itemize}  
 
-\subsection{Kreiranje Slobodnog projekta}
+\subsection{Kreiranje slobodnog projekta}
 
 Slobodan projekat je najfleksibilnija vrsta i može se koristiti za bilo koju vrstu projekta. Puno opcija koje se nameštaju u okviru slobodnog projekta se javljaju i u ostalim vrstama projekta. Pri kreiranju projekta prvo se unose osnovni podaci kao što su ime projekta i opis projekta. Zatim slede opcije:
 
@@ -72,16 +72,48 @@ Uz opcije "Repository" gde se navodi URL repozitorijuma i "Branches to build" gd
 \begin{description}
 \item Excluded users - imena user-a od čije strane ne može da se pokrene build-ovanje
 \end{description}
-\item DODATI JOS NEKE OPCIJE
-\item i ovde
-\item i ovde
 \end{itemize}
 
 \subsection{Pokretanje build-ova}
 
-\begin{itemize}  
+Nakon nameštanja koji ćete sistem za kontrolu verzija koristiti, vreme je da se konfiguriše kada će se build-ovi pokretati. Postoje osnovne tri vrste pokretanja build-ova, a to su:
+
+\begin{itemize}
+  
 \item Build after other projects are built
-\item Build periodically
-\item Poll SCM
+Ova opcija pruža pokretanje build-a kad god se neki drugi build izvrši. Postoje i 3 dodatne opcije:
+\begin{itemize}  
+\item Trigger only if build is stable - pokreni build samo ako je build stabilan
+\item Trigger even if the build is unstable - pokreni build iako je build nestabilan
+\item Trigger even if the build fails - pokreni build iako build ne uspe
 \end{itemize}
 
+\item Build periodically
+
+Odlika kontinualne integracije jeste kontinualno izvršavanje build-ovanja nakon svake promene što nije stvar kod periodičnog build-ovanja. U nekim slučajevima je i pogodno koristiti ovu vrstu pokretanja npr. kod projekata gde iscrpna testiranja traju i po nekoliko sati i gde je pogodnije pokretati build-ove u određenim vremenskim intervalima.
+Sintaksa za zadavanje vremenskog intervala: \\
+MINUTE HOUR DOM MONTH DOW
+\begin{itemize}
+\item MINUTE - minut u satu (0-59)
+\item HOUR - sat u danu (0-23)
+\item DOM - dan u mesecu (1-31)
+\item MONTH - mesec(1-12)
+\item DOW - dan u nedelji(0-7) gde su 0 i 7 nedelje
+\end{itemize}
+
+\item Poll SCM
+
+Bolja strategija od periodičnog build-ovanja jeste Polling the SCM tzv. "ispitivanje" sistema za kontrolu verzija. Ideja je da se sistem za kontrolu verzija "ispituje" da li je napravljena izmena u izvornom kodu. U slučaju da jeste Jenkins će pokrenuti build.
+\end{itemize}
+
+\subsection{Build steps}
+
+Definisanjem build koraka govorite Jenkins-u šta da radi sa vašim izvornim kodom. Jedan build može da ima više koraka u koje spadaju izvršavanje shell skripte, izvršavanje Windows batch komande ili povezivanje sa Maven-om ili Ant-om.
+
+\subsection{Post-Build Actions}
+
+Nakon samog procesa build-ovanja potrebno je preduzeti neke akcije. Neke od mogućih akcija su:
+\begin{itemize}
+\item Archive the artifacts - ova opcija omogućava da se rezultati build-ovanja čuvaju u određenom formatu i da se zatim download-uju
+\item E-mail Notifications - Jenkins obaveštava mejlom svaki put kada build ne uspe, kada uspe build nakon neuspelog pokušaja, kada je build nestabilan nakon uspešnog build-ovanja.
+\end{itemize}
