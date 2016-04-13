@@ -6,4 +6,36 @@ Najefikasniji pristup pisanja dobrih testova je da se testovi pišu na početku,
 U ovom poglavlju ćemo pokazati kako se u Jenkins može integrisati automatsko testiranje. Iako postoji mnogo različitih načina za testiranje softvera, držaćemo se uglavnom testova jedinica jer smatramo da je takav pristup testiranju najzastupljeniji.
 
 \subsection{Uključivanje testova jedinica u proces}
+Postoje različiti testovi jedinica za razne jezike. Najpoznatija grupa testova jedinica su \textit{x}Unit testovi, gde \textit{x} označava programski jezik (za Java programski jezik će biti JUnit, za PHP će biti PHPUnit itd.). 
 
+\textit{x}Unit testovi kao rezultat testiranja generišu neku vrstu izveštaja u XML datoteku za koju se zna shema. To znači dve stvari. Prvo, da alati za testiranje ne moraju da budu baš iz \textit{x}Unit familije, već mogu biti bilo kakvi alati koji će svoj izveštaj generisati u XML datoteku. Drugo, da Jenkins može da parsira taj izveštaj i lepše da ga prikaže za razliku od XML datoteke.
+
+Automatsko testiranje se izvršava kao jedna od operacija build procesa. Pošto je izlaz testiranja XML datoteka, jedino što preostaje da se uradi je da se konfiguraciji projekta postavi putanja do izlazne XML datoteke.
+
+\subsubsection{Konfigurisanje test izveštaja}
+Prvo je potrebno dodati novu post-build akciju. Iz padajućeg menija treba izabrati "Publish JUnit test result report". Jenkins dolazi sa preinstaliranim dodatkom za JUnit test izveštaje. Ako je projekat testiran u nekom drugom \textit{x}Unit alatu, potrebno je instalirati plugin koji se zove "xUnit" i njega koristiti. Od konfiguracije build menadžera zavisi putanja XML izveštaja. Tu putanju upisujemo u polje "Test report XMLs", kao što je prikazano na slici REF. 
+
+SLIKA
+\
+\subsubsection{Prikazivanje test rezultata}
+Kada je konfigurisan test izveštaj, Jenkins na početnoj strani projekta prikazuje grafikon na kome se mere za uspešne i neuspešne testove. Kao što se sa slike REF vidi, uspešni su obojeni plavom bojom, dok su neuspešni obojeni crvenom bojom. 
+
+SLIKA
+
+U sekciji sa linkovima na početnoj strani možemo videti poslednji build, poslednji stabilni build i poslednji uspešni build. Izborom linka za poslednji build prelazimo na ekran sa detaljima o tom buildu. Na slici REF je prikazan ekran sa detaljima. 
+
+SLIKA
+
+U detaljima Jenkins nam prikazuje koji testovi nisu prosli. Klikom na link neuspešnog testa dobijamo ekran REF sa detaljima zašto određeni test nije prošao. Ovako se jednostavno fokusiramo na greške i možemo ih brže ispraviti.
+
+SLIKA
+
+Testovi jedinica su dizajnirani tako da budu brzi. Na većim projektima testovi mogu da traju i po par sati, a nekada se oni pokreću i više puta dnevno. Spori testovi troše dragoceno vreme programera. Zato je veoma bitno da se testovi pišu tako da budu efikasni. U tu svrhu veoma je poželjno da imamo povratnu informaciju o tome koliko testovi dugo traju, kako bismo mogli da uvidimo problem. 
+
+Srećom, Jenkins nam pruža lepu vizuelizaciju koliko dugo su se testovi izvršavali za svaki build. Na slici REF je prikazan grafikon performansi testova.
+
+SLIKA
+
+\subsection{Pokrivenost koda}
+
+\subsection{Automatska tolerancija na testove}
