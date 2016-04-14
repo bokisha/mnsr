@@ -13,29 +13,66 @@ Postoje različiti testovi jedinica za razne jezike. Najpoznatija grupa testova 
 Automatsko testiranje se izvršava kao jedna od operacija build procesa. Pošto je izlaz testiranja XML datoteka, jedino što preostaje da se uradi je da se konfiguraciji projekta postavi putanja do izlazne XML datoteke.
 
 \subsubsection{Konfigurisanje test izveštaja}
-Prvo je potrebno dodati novu post-build akciju. Iz padajućeg menija treba izabrati "Publish JUnit test result report". Jenkins dolazi sa preinstaliranim dodatkom za JUnit test izveštaje. Ako je projekat testiran u nekom drugom \textit{x}Unit alatu, potrebno je instalirati plugin koji se zove "xUnit" i njega koristiti. Od konfiguracije build menadžera zavisi putanja XML izveštaja. Tu putanju upisujemo u polje "Test report XMLs", kao što je prikazano na slici REF. 
+Prvo je potrebno dodati novu post-build akciju. Iz padajućeg menija treba izabrati "Publish JUnit test result report". Jenkins dolazi sa preinstaliranim dodatkom za JUnit test izveštaje. Ako je projekat testiran u nekom drugom \textit{x}Unit alatu, potrebno je instalirati plugin koji se zove "xUnit" i njega koristiti. Od konfiguracije build menadžera zavisi putanja XML izveštaja. Tu putanju upisujemo u polje "Test report XMLs", kao što je prikazano na slici \ref{fig:test_xml_path}. 
 
-SLIKA
-\
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{slike/test_xml_path.png}
+\end{center}
+\caption{Podešavanje putanje za XML izveštaj}
+\label{fig:test_xml_path}
+\end{figure}
+
 \subsubsection{Prikazivanje test rezultata}
-Kada je konfigurisan test izveštaj, Jenkins na početnoj strani projekta prikazuje grafikon na kome se mere za uspešne i neuspešne testove. Kao što se sa slike REF vidi, uspešni su obojeni plavom bojom, dok su neuspešni obojeni crvenom bojom. 
+Kada je konfigurisan test izveštaj, Jenkins na početnoj strani projekta prikazuje grafikon na kome se mere za uspešne i neuspešne testove. Kao što se sa slike  \ref{fig:test_project_home} vidi, uspešni su obojeni plavom bojom, dok su neuspešni obojeni crvenom bojom. 
 
-SLIKA
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.45]{slike/test_project_home.png}
+\end{center}
+\caption{Početna strana projekta sa izveštajem}
+\label{fig:test_project_home}
+\end{figure}
 
-U sekciji sa linkovima na početnoj strani možemo videti poslednji build, poslednji stabilni build i poslednji uspešni build. Izborom linka za poslednji build prelazimo na ekran sa detaljima o tom buildu. Na slici REF je prikazan ekran sa detaljima. 
+U sekciji sa linkovima na početnoj strani možemo videti poslednji build, poslednji stabilni build i poslednji uspešni build. Izborom linka za poslednji build prelazimo na ekran sa detaljima o tom buildu. Na slici \ref{fig:test_last_build} je prikazan ekran sa detaljima. U detaljima Jenkins nam prikazuje koji testovi nisu prosli. Klikom na link neuspešnog testa dobijamo ekran sa detaljima zašto određeni test nije prošao. Ovako se jednostavno fokusiramo na greške i možemo ih brže ispraviti.
 
-SLIKA
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.35]{slike/test_last_build.png}
+\end{center}
+\caption{Poslednji build sa izveštajem o testovima}
+\label{fig:test_last_build}
+\end{figure}
 
-U detaljima Jenkins nam prikazuje koji testovi nisu prosli. Klikom na link neuspešnog testa dobijamo ekran REF sa detaljima zašto određeni test nije prošao. Ovako se jednostavno fokusiramo na greške i možemo ih brže ispraviti.
+Testovi jedinica su dizajnirani tako da budu brzi. Na većim projektima testovi mogu da traju i po par sati, a nekada se oni pokreću i više puta dnevno. Spori testovi troše dragoceno vreme programera. Zato je veoma bitno da se testovi pišu tako da budu efikasni. U tu svrhu veoma je poželjno da imamo povratnu informaciju o tome koliko testovi dugo traju, kako bismo mogli da uvidimo problem. Srećom, Jenkins nam pruža lepu vizuelizaciju koliko dugo su se testovi izvršavali za svaki build. Na slici \ref{fig:buildtimetrend} je prikazan grafikon performansi build-ova koji uključuju testove.
 
-SLIKA
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.35]{slike/buildtimetrend.png}
+\end{center}
+\caption{Performanse build-ova}
+\label{fig:buildtimetrend}
+\end{figure}
 
-Testovi jedinica su dizajnirani tako da budu brzi. Na većim projektima testovi mogu da traju i po par sati, a nekada se oni pokreću i više puta dnevno. Spori testovi troše dragoceno vreme programera. Zato je veoma bitno da se testovi pišu tako da budu efikasni. U tu svrhu veoma je poželjno da imamo povratnu informaciju o tome koliko testovi dugo traju, kako bismo mogli da uvidimo problem. 
+\subsection{Pokrivenost k\^oda}
+Jedna od metrika koja se ceni u testiranju softvera je \textit{pokrivenost k\^oda}. Iako ona ne daje neku značajnu informaciju o kvalitetu napisanog k\^oda, daje informaciju koliki deo k\^oda je pokriven testovima jedinica. Na primer, ako naši testovi za neku funkcionalnost uvek prolaze kroz \verb|if| granu ali ne i kroz \verb|else| granu.
 
-Srećom, Jenkins nam pruža lepu vizuelizaciju koliko dugo su se testovi izvršavali za svaki build. Na slici REF je prikazan grafikon performansi testova.
+Standardni alati za testiranje pružaju opcije za pregled pokrivenosti k\^oda u obliku generisanih HTML stranica. Prednost integracije ove metrike u Jenkins je što je možemo pratiti iz build-a u build kroz Jenkins. 
 
-SLIKA
+Kao i za većinu funkcionalnosti kod Jenkins sistema, potrebno je instalirati plug-in. Najpoznatiji alat za pokrivenost k\^oda za Javu je Cobertura koji se uključuje u build proces. Izlaz Cobertura alata je XML fajl do kojeg je potrebno da se podesi putanja u Jenkins-u. Tada Jenkins može da iz XML fajla napravi lepe grafikone i lepše prikaže ovu metriku.
 
-\subsection{Pokrivenost koda}
+Drugi alati, kao na primer PHPUnit, u sebi već imaju ugrađene sisteme za pokrivenost k\^oda. S toga, nije potrebno ništa dodatno podešavati jer plugin-ovi su dovoljno pametni da to prepoznaju i integrišu u Jenkins.
 
-\subsection{Automatska tolerancija na testove}
+Na slici \ref{fig:test_project_coverage} je prikazano kako izgleda grafikon pokrivenosti k\^oda koji prikazuje Jenkins za ceo projekat. Na sledećoj slici REF možemo pogledati metriku vezanu za određeni paket, dok kad kliknemo na određenu klasu prikazaće nam se k\^od te klase sa obojenom pozadinom koja nam pokazuje koji to delovi k\^oda nisu a koji jesu pokriveni testovima.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.35]{slike/test_project_coverage.png}
+\end{center}
+\caption{Početna strana projekta sa izveštajem}
+\label{fig:test_project_coverage}
+\end{figure}
+
+
+
+
