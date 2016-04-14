@@ -19,7 +19,7 @@
 
 \begin{document}
 
-\title{Naslov seminarskog rada\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
+\title{Sistem za automatizaciju build/test ciklusa – Jenkins\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
 
 \author{Uroš Milenković, Nikola Sojčić, Bojan Nestorović\\ enco164@gmail.com, soja.991@gmail.com,  bojants91@gmail.com}
 \date{13.~april 2016.}
@@ -35,11 +35,32 @@ U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. Obratite paž
 \section{Uvod}
 \label{sec:uvod}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu dui sed nulla gravida auctor. Phasellus cursus massa turpis, eu luctus mi sodales vitae. Mauris faucibus ut diam eu posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in fringilla ex. Donec facilisis lectus quis velit mollis, sit amet pulvinar velit commodo. Cras hendrerit lectus id molestie venenatis. Phasellus quis mi erat. Praesent posuere augue at mauris porttitor cursus. Nam imperdiet libero iaculis, vehicula ipsum nec, malesuada libero.
+Jenkins je softverski alat za kontinuiranu integraciju softvera (eng.~{\em Continuous software integration}) napisan na Java programskom jeziku. Jenkins omogucava timovima da se fokusiraju na posao tako što automatizuje proces build-ovanja, testiranja i objavljivanja novih verzija softvera. Ono što jenkins izdvaja je to što postoji bogata baza dodataka (eng.~{\em Plugins}), lako razvijanje sopstvenih dodataka i podržan je od strane  velike zajednice.
+\
+Originalno je razvijan kao Hudson projekat u okviru Sun Microsistems-a. Krajem 2010-te godine došlo je do nesuglasica između originalnih razvijaoca i Oracla koja su rezultirala izdvajanja projekta i promenom imena iz Hudson u Jenkins. Oracle je nastavio da razvija Hudson i smatra Jenkins kao poseban projekat, a ne kao promenu imena. 
 
-Sed eu dictum ex. Aenean auctor tellus eget dictum cursus. Curabitur a tempus sapien, ut hendrerit metus. Quisque elit mauris, elementum id placerat et, vehicula eget nisl. Vestibulum ultrices euismod quam eu rhoncus. Integer vel dolor ac augue molestie consectetur. Donec feugiat pharetra consectetur. Cras dictum, augue non gravida auctor, ligula nunc hendrerit velit, vel vulputate est arcu sed velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
-Proin suscipit tempor massa, nec commodo urna posuere at. Vestibulum nec velit rhoncus, consequat velit eget, cursus leo. Morbi facilisis scelerisque sagittis. Nullam suscipit lobortis placerat. Praesent ullamcorper tempor purus aliquam suscipit. Nulla fringilla lobortis elit rhoncus cursus. Integer commodo vestibulum lacus vel dapibus. Integer sed quam malesuada libero efficitur interdum. Aliquam suscipit aliquam justo, eget tempus leo placerat quis. Cras tristique quis arcu vel mollis. Sed laoreet sem id enim auctor, eu pellentesque augue iaculis. Nullam viverra velit in efficitur dapibus. Donec sed cursus lacus.
+Kontinuirana integracija predstavlja način razvijanja softvera gde članovi tima objedinjuju svoj kod na dnevnom nivou. Svako objedinjavanje je potvrđeno od strane automatskog build-ovanja i testiranja kako bi se detektovale greške što je brže moguće. Svaka promena mora proći kroz sve korake validacije na svom putu ka objavljivanju. Ovakav pristup smanjuje cenu projekta, vreme uloženo i rizik pri konstantnim objavama novih verzija. 
+
+
+
+Prilikom svakog objedinjavanja, sistem je:
+\begin{itemize}
+\item Integrisan - sve promene do tog trenutka su objedinjene u projekat
+\item Build-ovan - kod je kompajliran u paket ili u izvršni fajl
+\item Testiran - pokreću se automatski testovi
+\item Arhiviran - verzionisan i sačuvan kako bi se distribuirano(ako se to želi)
+\item Primenjen - učitan na sistem gde developeri mogu da interaktuju sa najnovijim promenama
+\end{itemize} 
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.75, totalheight=0.35\textheight]{slike/workflow.png}
+\end{center}
+\caption{Kontinuirana integracija softvera}
+\label{fig:Kontinuirana integracija softvera}
+\end{figure}
+
 
 
 \input{soja.tex}
@@ -50,10 +71,15 @@ Proin suscipit tempor massa, nec commodo urna posuere at. Vestibulum nec velit r
 \section{Zaključak}
 \label{sec:zakljucak}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu dui sed nulla gravida auctor. Phasellus cursus massa turpis, eu luctus mi sodales vitae. Mauris faucibus ut diam eu posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in fringilla ex. Donec facilisis lectus quis velit mollis, sit amet pulvinar velit commodo. Cras hendrerit lectus id molestie venenatis. Phasellus quis mi erat. Praesent posuere augue at mauris porttitor cursus. Nam imperdiet libero iaculis, vehicula ipsum nec, malesuada libero.
-
-Sed eu dictum ex. Aenean auctor tellus eget dictum cursus. Curabitur a tempus sapien, ut hendrerit metus. Quisque elit mauris, elementum id placerat et, vehicula eget nisl. Vestibulum ultrices euismod quam eu rhoncus. Integer vel dolor ac augue molestie consectetur. Donec feugiat pharetra consectetur. Cras dictum, augue non gravida auctor, ligula nunc hendrerit velit, vel vulputate est arcu sed velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
+Postoje mnogi benefiti korišćenja Jenkinsa, a neki od njih su:
+\begin{itemize}
+\item Momentalno otkrivanje grešaka u kodu
+\item Povećana produktivnost i efikasnost svih timova uključeni u razvoj, testiranje i automatizaciju procesa
+\item Nema integracioni korak u ciklusu razvijanja softvera
+\item Sistem je u svakom trenutku spreman za isporučivanje
+\item Čuva se redosled razvijanja projekta
+\item Povećan kvalitet završnog koda
+\end{itemize} 
 
 \addcontentsline{toc}{section}{Literatura}
 \appendix
@@ -63,10 +89,5 @@ Sed eu dictum ex. Aenean auctor tellus eget dictum cursus. Curabitur a tempus sa
 \appendix
 \section{Dodatak}
 Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
-Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
-Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
-Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
-Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
-
 
 \end{document}
