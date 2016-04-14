@@ -2,7 +2,6 @@
 
 \section{Deployment}
 
-
 Postoje mnogi dodaci koji se koriste da prebace build fajlove posle uspesnog kompajliranja na željenu lokaciju ili web server. Ovde ćemo to pokazati na primeru "Deploy to container Plugin". 
 
 \subsection{Instalacija dodatka Deploy to container Plugin}
@@ -25,10 +24,19 @@ Potrebno je otici na Vaš Build project i kliknuti na Configure option. Izaberit
 \begin{center}
 \includegraphics[scale=0.45]{slike/deploy_war_ear_container.png}
 \end{center}
-\caption{Dodavanje dodatka}
+\caption{Deploy war/ear to a container dodatak}
 \label{fig:deploy_war_ear_container}
 \end{figure}
 
+U polja prikazana na slici \ref{fig:demo_config.png} unesite detalja servera na kojem želite da se fajlovi šalju i kliknite na Save dugme. Ovi koraci će obezbediti da se potrebni fajlovi nadju na serveru posle uspešnog build-a.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.45]{slike/demo_config.png}
+\end{center}
+\caption{Nameštanje konfiguracije}
+\label{fig:demo_config.png}
+\end{figure}
 
 %
 
