@@ -1,6 +1,6 @@
 \section{Build Jobs}
 
-Build jobs predstavlja skup poslova u koji spadaju kompajliranje, testiranje, pakovanje, razvijanje projekta ili bilo koji drugi posao koji manevriše sa vašim projektom. Build job je osnovni pojam kad se govori o principu kontinualne integracije. 
+Build jobs predstavlja skup poslova u koji spadaju kompajliranje, testiranje, pakovanje, razvijanje projekta ili bilo koji drugi posao koji manevriše sa vašim projektom. Build job je osnovni pojam kad se govori o principu kontinualne integracije.
 
 \subsection{Kreiranje Build Job-a}
 
@@ -8,7 +8,7 @@ Pravljenje build job-a je veoma jednostavno i ono podrazumeva razna podešavanja
 \begin{itemize}  
 \item Slobodan projekat(Freestyle software project) - Vrsta projekta koji pružaju maksimalnu fleksibilnost i koji služe za osnovnu upotrebu
 \item Maven project - buiild job koji je specijalno namenjen Maven projektima 
-\item External job - ova opcija služi da se prate izvršavanja nekog drugog procesa koji se ne pokreće na Jenkins-u
+\item External job - ova opcija služi da se prate izvršavanja nekog drugog procesa koji se ne nalazi na Jenkins-u
 \item Multi-configuration project - ova opcija je pogodna za projekte koji zahtevaju više različitih konfigurisanja
 \item Copy existing job - projekat može da bude i kopija već postojećeg projekta koji zahteva neke promene u konfigurisanju
 \end{itemize}  
@@ -18,29 +18,34 @@ Pravljenje build job-a je veoma jednostavno i ono podrazumeva razna podešavanja
 Slobodan projekat je najfleksibilnija vrsta i može se koristiti za bilo koju vrstu projekta. Puno opcija koje se nameštaju u okviru slobodnog projekta se javljaju i u ostalim vrstama projekta. Pri kreiranju projekta prvo se unose osnovni podaci kao što su ime projekta i opis projekta. Zatim slede opcije:
 
 \begin{itemize}  
-\item Discard Old Builds - čekiranjem ove opcije limitirate broj build-ova koji će se čuvati, postoje dva kriterijuma 
-\begin{enumerate}
+\item Discard Old Builds - čekiranjem ove opcije limitirate broj build-ova koji će se čuvati, postoje dva kriterijuma:
+\begin{itemize}
 \item Po starosti - build se briše posle određenog vremena
 \item Po broju - čuva se N build-ova
-\end{enumerate}
-\item This build is parameterized - build uzima parametre
+\end{itemize}
+\item This build is parameterized - korisnik dodeljuje parametre koje će build koristiti. Neki od parametara su:
+\begin{itemize}
+\item Boolean Parameter - definiše se string ''''true'' ili ''false'' koji se može koristiti u procesu build-ovanja
+\item Choice Parameter - definiše se string koji može imati bilo koju vrednost iz liste izbora i koji se može koristiti u procesu build-ovanja
+\item Password Parameter - definiše se tekst gde korisnici mogu da unesu string vrednost koji se može koristiti tokom proces build-ovanja
+\end{itemize}
 \item Disable Build - kad je čekirano privremeno se obustavlja build-ovanje
-\item Execute concurrent builds if necessary
+\item Execute concurrent builds if necessary - čekiranjem ove opcije, omogućava se paralelno izvršavanje build-ovanja. Veoma kosrisno kod parametrizovanih build-ova gde su izvršavanja nezavisna jedna od drugih
 \end{itemize}
 
-"Napredne" opcije:
+''Napredne'' opcije:
 \begin{itemize}  
-\item Quiet period - ako je čekirano onda sledeći zakazani build je na čekanju
+\item Quiet period - čekiranjem ove opcije, zadaje se broj sekundi nakon koliko će se pokrenuti sledeći build
 \item Retry Count - u slučaju da build ne uspe, zadaje se broj ponovnih pokušaja
 \item Block build when upstream project is building - sprečava se build-ovanje ako je neki projekat koji je zavistan od njega isto u procesu build-ovanja
-\item Block build when downstream project is building - sprečava se build-ovanje ako je neki projekat koji je "dete" isto u procesu build-ovanja
-\item Use custom workspace
+\item Block build when downstream project is building - sprečava se build-ovanje ako je neki projekat koji je ''dete'' isto u procesu build-ovanja
+\item Use custom workspace - manualno zadavanje radnog prostora
 \item Keep the build logs of dependencies
 \end{itemize}
 
 \subsection{Integracija sa izvornim kodom}
 
-Jedna od najbitnijih i najznačajnijih stvari je integracija sa sistemom za kontrolu verzija. Jenkins prati svaku promenu u vašem izvornom kodu posle kojih se pokreće kompajliranje i razni automatski testovi. Podržani su razni sistemi za kontrolu verzija, CVS i Subversion "u startu", dok za sisteme kao što su Git, Mercurial, Harvest, BitKeeper i ostale postoje plugin-ovi koji se lako instaliraju preko Jenkins plugin Manager-a. Pri pravljenju projekta i odabiru koji sistem za kontrolu verzija će se koristiti, unošenjem URL-a repozitorijuma se vrši integracija sa izvornim kodom.
+Jedna od najbitnijih i najznačajnijih stvari je integracija sa sistemom za kontrolu verzija. Jenkins prati svaku promenu u vašem izvornom kodu posle kojih se pokreće kompajliranje i razni automatski testovi. Podržani su razni sistemi za kontrolu verzija, CVS i Subversion ''u startu'', dok za sisteme kao što su Git, Mercurial, Harvest, BitKeeper i ostale postoje plugin-ovi koji se lako instaliraju preko Jenkins plugin Manager-a. Pri pravljenju projekta i odabiru koji sistem za kontrolu verzija će se koristiti, unošenjem URL-a repozitorijuma se vrši integracija sa izvornim kodom.
 
 \subsection{Git Setup}
 
@@ -60,7 +65,7 @@ Za razliku od sistema za kontrolu verzija kao što su CVS i Subversion čiji su 
 \label{fig:git}
 \end{figure}
 
-Uz opcije "Repository" gde se navodi URL repozitorijuma i "Branches to build" gde se navodi ime branch-a(grane) koje se build-uje postoje je tzv. "Dodatna ponašanja"(Additional Behaviours). Neka od njih su:
+Uz opcije ''Repository'' gde se navodi URL repozitorijuma i ''Branches to build'' gde se navodi ime branch-a(grane) koje se build-uje postoje je tzv. ''Dodatna ponašanja''(Additional Behaviours). Neka od njih su:
  
 \begin{itemize}  
 \item Polling ignores commits from certain paths
@@ -80,8 +85,7 @@ Nakon nameštanja koji ćete sistem za kontrolu verzija koristiti, vreme je da s
 
 \begin{itemize}
   
-\item Build after other projects are built
-Ova opcija pruža pokretanje build-a kad god se neki drugi build izvrši. Postoje i 3 dodatne opcije:
+\item Build after other projects are built - ova opcija pruža pokretanje build-a kad god se neki drugi build izvrši. Postoje i 3 dodatne opcije:
 \begin{itemize}  
 \item Trigger only if build is stable - pokreni build samo ako je build stabilan
 \item Trigger even if the build is unstable - pokreni build iako je build nestabilan
@@ -103,14 +107,14 @@ MINUTE HOUR DOM MONTH DOW
 
 \item Poll SCM
 
-Bolja strategija od periodičnog build-ovanja jeste Polling the SCM tzv. "ispitivanje" sistema za kontrolu verzija. Ideja je da se sistem za kontrolu verzija "ispituje" da li je napravljena izmena u izvornom kodu. U slučaju da jeste Jenkins će pokrenuti build.
+Bolja strategija od periodičnog build-ovanja jeste Polling the SCM tzv. ''ispitivanje'' sistema za kontrolu verzija. Ideja je da se sistem za kontrolu verzija ''ispituje'' da li je napravljena izmena u izvornom kodu. U slučaju da jeste Jenkins će pokrenuti build.
 \end{itemize}
 
-\subsection{Build steps}
+\subsection{Koraci build-ovanja}
 
 Definisanjem build koraka govorite Jenkins-u šta da radi sa vašim izvornim kodom. Jedan build može da ima više koraka u koje spadaju izvršavanje shell skripte, izvršavanje Windows batch komande ili povezivanje sa Maven-om ili Ant-om.
 
-\subsection{Post-Build Actions}
+\subsection{Akcije posle build-ovanja}
 
 Nakon samog procesa build-ovanja potrebno je preduzeti neke akcije. Neke od mogućih akcija su:
 \begin{itemize}
