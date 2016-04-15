@@ -12,7 +12,7 @@ Postoje različiti testovi jedinica za razne jezike. Najpoznatija grupa testova 
 
 Automatsko testiranje se izvršava kao jedna od operacija build procesa. Pošto je izlaz testiranja XML datoteka, jedino što preostaje da se uradi je da se konfiguraciji projekta postavi putanja do izlazne XML datoteke.
 
-\subsubsection{Konfigurisanje test izveštaja}
+\subsubsection{Konfigurisanje test izveštaja i prikazivanje rezultata}
 Prvo je potrebno dodati novu post-build akciju. Iz padajućeg menija treba izabrati "Publish JUnit test result report". Jenkins dolazi sa preinstaliranim dodatkom za JUnit test izveštaje. Ako je projekat testiran u nekom drugom \textit{x}Unit alatu, potrebno je instalirati plugin koji se zove "xUnit" i njega koristiti. Od konfiguracije build menadžera zavisi putanja XML izveštaja. Tu putanju upisujemo u polje "Test report XMLs", kao što je prikazano na slici \ref{fig:test_xml_path}. 
 
 \begin{figure}[h!]
@@ -23,7 +23,6 @@ Prvo je potrebno dodati novu post-build akciju. Iz padajućeg menija treba izabr
 \label{fig:test_xml_path}
 \end{figure}
 
-\subsubsection{Prikazivanje test rezultata}
 Kada je konfigurisan test izveštaj, Jenkins na početnoj strani projekta prikazuje grafikon na kome se mere za uspešne i neuspešne testove. Kao što se sa slike  \ref{fig:test_project_home} vidi, uspešni su obojeni plavom bojom, dok su neuspešni obojeni crvenom bojom. 
 
 \begin{figure}

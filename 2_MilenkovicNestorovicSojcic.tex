@@ -67,6 +67,25 @@ Prilikom svakog objedinjavanja, sistem je:
 \input{enco.tex}
 \input{boki.tex}
 
+\section{Jenkins vs Buildbot}
+\begin{center}
+\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Name & Platform & License & Windows builders & Java builders \\ \hline
+Buildbot & Python & GPL(GNU General Public License) & Yes(command line) & Yes(command line) \\ \hline
+Jenkins & Servlet Container & Creative Commons and MIT & MSBuild, NAnt & Ant, Maven, Kundo \\ \hline
+\end{tabular}
+\end{center} 
+
+\begin{center}
+\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Name & Other builders & Notification & IDE Integration & Other Integration \\ \hline
+Buildbot & Yes(command line) & E-mail, Web, GUI, IRC(Internet relay chat) & Unknown & Unknown \\ \hline
+Jenkins & Cmake, Gant, Gradle, Ruby, Python, Shell script and others & Android, E-mail, Google Calendar, IRC, XMPP, RSS, Twitter, Slack & Eclipse, Intellij IDEA, NetBeans & Bugzilla, Google Code, JIRA and others \\ \hline
+\end{tabular}
+\end{center}
+
 
 \section{Zaključak}
 \label{sec:zakljucak}
