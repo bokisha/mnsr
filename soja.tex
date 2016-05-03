@@ -1,13 +1,13 @@
 \section{Build Jobs}
 
-Build jobs predstavlja skup poslova u koji spadaju kompajliranje, testiranje, pakovanje, razvijanje projekta ili bilo koji drugi posao koji manevriše sa vašim projektom. Build job je osnovni pojam kad se govori o principu kontinualne integracije.
+''Build jobs'' predstavlja skup poslova u koji spadaju kompajliranje, testiranje, pakovanje, razvijanje projekta ili bilo koji drugi posao koji manevriše sa vašim projektom. ''Build job'' je osnovni pojam kad se govori o principu kontinualne integracije.
 
 \subsection{Kreiranje Build Job-a}
 
-Pravljenje build job-a je veoma jednostavno i ono podrazumeva razna podešavanja. Prvo treba odrediti kakvog će tipa biti projekat. Postoje četiri osnovne vrste i to su:
+Pravljenje ''build job-a'' je veoma jednostavno i ono podrazumeva razna podešavanja. Prvo treba odrediti kakvog će tipa biti projekat. Postoji pet osnovnih i to su:
 \begin{itemize}  
 \item Slobodan projekat(Freestyle software project) - Vrsta projekta koji pružaju maksimalnu fleksibilnost i koji služe za osnovnu upotrebu
-\item Maven project - buiild job koji je specijalno namenjen Maven projektima 
+\item Maven project - ''build job'' koji je specijalno namenjen Maven projektima
 \item External job - ova opcija služi da se prate izvršavanja nekog drugog procesa koji se ne nalazi na Jenkins-u
 \item Multi-configuration project - ova opcija je pogodna za projekte koji zahtevaju više različitih konfigurisanja
 \item Copy existing job - projekat može da bude i kopija već postojećeg projekta koji zahteva neke promene u konfigurisanju
@@ -18,29 +18,28 @@ Pravljenje build job-a je veoma jednostavno i ono podrazumeva razna podešavanja
 Slobodan projekat je najfleksibilnija vrsta i može se koristiti za bilo koju vrstu projekta. Puno opcija koje se nameštaju u okviru slobodnog projekta se javljaju i u ostalim vrstama projekta. Pri kreiranju projekta prvo se unose osnovni podaci kao što su ime projekta i opis projekta. Zatim slede opcije:
 
 \begin{itemize}  
-\item Discard Old Builds - čekiranjem ove opcije limitirate broj build-ova koji će se čuvati, postoje dva kriterijuma:
+\item Discard Old Builds - čekiranjem ove opcije limitirate broj bildova koji će se čuvati, postoje dva kriterijuma:
 \begin{itemize}
-\item Po starosti - build se briše posle određenog vremena
-\item Po broju - čuva se N build-ova
+\item Po starosti - bild se briše posle određenog vremena
+\item Po broju - čuva se N bildova
 \end{itemize}
-\item This build is parameterized - korisnik dodeljuje parametre koje će build koristiti. Neki od parametara su:
+\item This build is parameterized - korisnik dodeljuje parametre koje će bild koristiti. Neki od parametara su:
 \begin{itemize}
-\item Boolean Parameter - definiše se string ''true'' ili ''false'' koji se može koristiti u procesu build-ovanja
-\item Choice Parameter - definiše se string koji može imati bilo koju vrednost iz liste izbora i koji se može koristiti u procesu build-ovanja
-\item Password Parameter - definiše se tekst gde korisnici mogu da unesu string vrednost koji se može koristiti tokom proces build-ovanja
+\item Boolean Parameter - definiše se string ''true'' ili ''false'' koji se može koristiti u procesu bildovanja
+\item Choice Parameter - definiše se string koji može imati bilo koju vrednost iz liste izbora i koji se može koristiti u procesu bildovanja
+\item Password Parameter - definiše se tekst gde korisnici mogu da unesu string vrednost koji se može koristiti tokom proces bildovanja
 \end{itemize}
-\item Disable Build - kad je čekirano privremeno se obustavlja build-ovanje
-\item Execute concurrent builds if necessary - čekiranjem ove opcije, omogućava se paralelno izvršavanje build-ovanja. Veoma kosrisno kod parametrizovanih build-ova gde su izvršavanja nezavisna jedna od drugih
+\item Disable Build - kad je čekirano privremeno se obustavlja bildovanje
+\item Execute concurrent builds if necessary - čekiranjem ove opcije, omogućava se paralelno izvršavanje bildovanja. Veoma kosrisno kod parametrizovanih bildova gde su izvršavanja nezavisna jedna od drugih
 \end{itemize}
 
 ''Napredne'' opcije:
 \begin{itemize}  
-\item Quiet period - čekiranjem ove opcije, zadaje se broj sekundi nakon koliko će se pokrenuti sledeći build
-\item Retry Count - u slučaju da build ne uspe, zadaje se broj ponovnih pokušaja
-\item Block build when upstream project is building - sprečava se build-ovanje ako je neki projekat koji je zavistan od njega isto u procesu build-ovanja
-\item Block build when downstream project is building - sprečava se build-ovanje ako je neki projekat koji je ''dete'' isto u procesu build-ovanja
+\item Quiet period - čekiranjem ove opcije, zadaje se broj sekundi nakon koliko će se pokrenuti sledeći bild
+\item Retry Count - u slučaju da bild ne uspe, zadaje se broj ponovnih pokušaja
+\item Block build when upstream project is building - sprečava se bildovanje ako je neki projekat od koga je zavistan trenutni projekat isto u procesu bildovanja
+\item Block build when downstream project is building - sprečava se bildovanje ako je neki projekat koji je zavistan od trenutnog isto u procesu bildovanja
 \item Use custom workspace - manualno zadavanje radnog prostora
-\item Keep the build logs of dependencies
 \end{itemize}
 
 \subsection{Integracija sa izvornim kodom}
@@ -65,36 +64,36 @@ Za razliku od sistema za kontrolu verzija kao što su CVS i Subversion čiji su 
 \label{fig:git}
 \end{figure}
 
-Uz opcije ''Repository'' gde se navodi URL repozitorijuma i ''Branches to build'' gde se navodi ime branch-a(grane) koje se build-uje postoje je tzv. ''Dodatna ponašanja''(Additional Behaviours). Neka od njih su:
+Uz opcije ''Repository'' gde se navodi URL repozitorijuma i ''Branches to build'' gde se navodi ime branch-a(grane) koje se bilduje postoje i tzv. ''Dodatna ponašanja''(Additional Behaviours). Neka od njih su:
  
 \begin{itemize}  
 \item Polling ignores commits from certain paths
-\begin{enumerate}
-\item Included regions - unose se putanje fajlova koje se build-uju
+\begin{itemize}
+\item Included regions - unose se putanje fajlova koje se bilduju
 \item Excluded regions - unose se putanje fajlova čije testiranje nema efekta npr. slike
-\end{enumerate}
+\end{itemize}
 \item Polling ignores commits in certain users 
-\begin{description}
-\item Excluded users - imena user-a od čije strane ne može da se pokrene build-ovanje
-\end{description}
+\begin{itemize}
+\item Excluded users - imena user-a od čije strane ne može da se pokrene bildovanje
+\end{itemize}
 \end{itemize}
 
-\subsection{Pokretanje build-ova}
+\subsection{Pokretanje bildova}
 
-Nakon nameštanja koji ćete sistem za kontrolu verzija koristiti, vreme je da se konfiguriše kada će se build-ovi pokretati. Postoje osnovne tri vrste pokretanja build-ova, a to su:
+Nakon nameštanja koji ćete sistem za kontrolu verzija koristiti, vreme je da se konfiguriše kada će se bildovi pokretati. Postoje osnovne tri vrste pokretanja bildova, a to su:
 
 \begin{itemize}
   
-\item Build after other projects are built - ova opcija pruža pokretanje build-a kad god se neki drugi build izvrši. Postoje i 3 dodatne opcije:
+\item Build after other projects are built - ova opcija pruža pokretanje bilda kad god se neki drugi bild izvrši. Postoje i 3 dodatne opcije:
 \begin{itemize}  
-\item Trigger only if build is stable - pokreni build samo ako je build stabilan
-\item Trigger even if the build is unstable - pokreni build iako je build nestabilan
-\item Trigger even if the build fails - pokreni build iako build ne uspe
+\item Trigger only if build is stable - pokreni bild samo ako je bild stabilan
+\item Trigger even if the build is unstable - pokreni bild iako je bild nestabilan
+\item Trigger even if the build fails - pokreni bild iako bild ne uspe
 \end{itemize}
 
 \item Build periodically
 
-Odlika kontinualne integracije jeste kontinualno izvršavanje build-ovanja nakon svake promene što nije stvar kod periodičnog build-ovanja. U nekim slučajevima je i pogodno koristiti ovu vrstu pokretanja npr. kod projekata gde iscrpna testiranja traju i po nekoliko sati i gde je pogodnije pokretati build-ove u određenim vremenskim intervalima.
+Odlika kontinualne integracije jeste kontinualno izvršavanje bildovanja nakon svake promene što nije stvar kod periodičnog bildovanja. U nekim slučajevima je i pogodno koristiti ovu vrstu pokretanja npr. kod projekata gde iscrpna testiranja traju i po nekoliko sati i gde je pogodnije pokretati bildove u određenim vremenskim intervalima.
 Sintaksa za zadavanje vremenskog intervala: \\
 MINUTE HOUR DOM MONTH DOW
 \begin{itemize}
@@ -107,17 +106,17 @@ MINUTE HOUR DOM MONTH DOW
 
 \item Poll SCM
 
-Bolja strategija od periodičnog build-ovanja jeste Polling the SCM tzv. ''ispitivanje'' sistema za kontrolu verzija. Ideja je da se sistem za kontrolu verzija ''ispituje'' da li je napravljena izmena u izvornom kodu. U slučaju da jeste Jenkins će pokrenuti build.
+Bolja strategija od periodičnog bildovanja jeste Polling the SCM tzv. ''ispitivanje'' sistema za kontrolu verzija. Ideja je da se sistem za kontrolu verzija ''ispituje'' da li je napravljena izmena u izvornom kodu. U slučaju da jeste Jenkins će pokrenuti bild.
 \end{itemize}
 
-\subsection{Koraci build-ovanja}
+\subsection{Koraci bildovanja}
 
-Definisanjem build koraka govorite Jenkins-u šta da radi sa vašim izvornim kodom. Jedan build može da ima više koraka u koje spadaju izvršavanje shell skripte, izvršavanje Windows batch komande ili povezivanje sa Maven-om ili Ant-om.
+Definisanjem bild koraka govorite Jenkins-u šta da radi sa vašim izvornim kodom. Jedan bild može da ima više koraka u koje spadaju izvršavanje shell skripte, izvršavanje Windows batch komande ili povezivanje sa Maven-om ili Ant-om.
 
-\subsection{Akcije posle build-ovanja}
+\subsection{Akcije posle bildovanja}
 
-Nakon samog procesa build-ovanja potrebno je preduzeti neke akcije. Neke od mogućih akcija su:
+Nakon samog procesa bildovanja potrebno je preduzeti neke akcije. Neke od mogućih akcija su:
 \begin{itemize}
-\item Archive the artifacts - ova opcija omogućava da se rezultati build-ovanja čuvaju u određenom formatu i da se zatim download-uju
-\item E-mail Notifications - Jenkins obaveštava mejlom svaki put kada build ne uspe, kada uspe build nakon neuspelog pokušaja, kada je build nestabilan nakon uspešnog build-ovanja.
+\item Archive the artifacts - ova opcija omogućava da se rezultati bildovanja čuvaju u određenom formatu i da se zatim downloaduju
+\item E-mail Notifications - Jenkins obaveštava mejlom svaki put kada bild ne uspe, kada uspe bild nakon neuspelog pokušaja, kada je build nestabilan nakon uspešnog bildovanja.
 \end{itemize}
