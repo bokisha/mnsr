@@ -1,0 +1,339 @@
+ % !TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{report}
+
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8x,utf8]{inputenc} % make weird characters work
+\usepackage[serbian]{babel}
+%\usepackage[english,serbianc]{babel}
+\usepackage{amssymb}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\newcommand{\odgovor}[1]{\textcolor{blue}{#1}}
+
+\begin{document}
+
+\title{Jenkins ukratko\\
+  \small{Uroš Milenković, Nikola Sojčić, Bojan Nestorović
+}}
+
+\maketitle
+\tableofcontents
+
+\chapter{Uputstva}
+\emph{Prilikom redavanja odgovora na recenziju, obrišite ovo poglavlje.}
+
+Neophodno je odgovoriti na sve zamerke koje su navedene u okviru recenzija. Svaki odgovor pišete u okviru okruženja \verb"\odgovor", \odgovor{kako bi vaši odgovori bili lakše uočljivi.} 
+\begin{enumerate}
+
+\item Odgovor treba da sadrži na koji način ste izmenili rad da bi adresirali problem koji je recenzent naveo. Na primer, to može biti neka dodata rečenica ili dodat pasus. Ukoliko je u pitanju kraći tekst onda ga možete navesti direktno u ovom dokumentu, ukoliko je u pitanju duži tekst, onda navedete samo na kojoj strani i gde tačno se taj novi tekst nalazi. Ukoliko je izmenjeno ime nekog poglavlja, navedite na koji način je izmenjeno, i slično, u zavisnosti od izmena koje ste napravili. 
+
+\item Ukoliko ništa niste izmenili povodom neke zamerke, detaljno obrazložite zašto zahtev recenzenta nije uvažen.
+
+\item Ukoliko ste napravili i neke izmene koje recenzenti nisu tražili, njih navedite u poslednjem poglavlju tj u poglavlju Dodatne izmene.
+\end{enumerate}
+
+Za svakog recenzenta dodajte ocenu od 1 do 5 koja označava koliko vam je recenzija bila korisna, odnosno koliko vam je pomogla da unapredite rad. Ocena 1 označava da vam recenzija nije bila korisna, ocena 5 označava da vam je recenzija bila veoma korisna. 
+
+NAPOMENA: Recenzije ce biti ocenjene nezavisno od vaših ocena. Na osnovu recenzije ja znam da li je ona korisna ili ne, pa na taj način vama idu negativni poeni ukoliko kažete da je korisno nešto što nije korisno. Vašim kolegama šteti da kažete da im je recenzija korisna jer će misliti da su je dobro uradili, iako to zapravo nisu. Isto važi i na drugu stranu, tj nemojte reći da nije korisno ono što jeste korisno. Prema tome, trudite se da budete objektivni. 
+
+\chapter{Prvi recenzent \odgovor{--- ocena:} }
+
+\section{O čemu rad govori?}
+Rad opisuje osnovne mogućnosti softverskog paketa Jenkins koji automatizuje
+procese: prevođenja, testiranja, arhiviranja i deployment-a fokusirajući se na 
+sekvencionalni metod izvršavanja.
+
+\section{Krupne primedbe i sugestije}
+
+Rad potpuno ignoriše \textit{"eng. pipeline"} pristup i fokusira se isključivo na slobodne
+projekte koji dozvoljavaju samo sekvencijalno izvršavanje zadataka. Tvrđenje da slobodni
+projekat pruža maksimalnu fleksibilnost s'toga nije tačna.
+
+Opis opcije parametrizovane izgradnje (\textit{eng. parametrized build}) treba
+dopuniti konkretnijim primerima. Neupućenom čitaocu je teško razumeti kakve kakve su
+to opcije koje se prosleđuju i koji format bi bio pogodniji za koju situaciju.
+
+\section{Sitne primedbe}
+Rad se u nekim trenucima čini kao kratak tutorijal za početnike umesto uopštenog
+pregleda mogućnosti. Navođenje detalja kao što su opisi instalacije proširenja
+(git ...) ili specifičnosti kreiranja novog projekta nisu toliko bitne za 
+samu temu.
+
+Trebalo bi izbegavati rečenice kao što su:
+\begin{itemize}
+  \item "pokušaćemo da zagrebemo površinu ovog složenog sistema", jer rad čini manje vrednim.
+\end{itemize}
+Postoji nekoliko sitnih grešaka pri kucanju.
+
+
+\odgovor{Rad je namerno pisan kao kao kratko ``uputstvo za korisnike``, sto je navedeno i u sazetku, jer smatramo da je tako mnogo bolje zainteresovati čitalaca. Smatramo da seminarski rad ne treba da bude suvoparno nabrajanje mogućnosti softvera već kratak uvod u neku temu. Za opisivanje svih mogućnosti služe radovi većeg obima (npr. knjige). Sugestija vezana za poslednju rečenicu sažetka je prihvaćena.}
+
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+  Da, rad je za temu imao da opiše mogućnosti i prednosti softvera Jenkins što je i opisano.
+\item Da li je nešto važno propušteno?\\
+  Pipeline (ili workflow ) je postao standard za upravljanje kompleksnijim nelinearnim
+  izvršavanjem. U ovom radu pipeline je potpuno zanemaren. Takođe postoji specijalna
+  terminologija koja se koristi za definisanje jednog pipeline konfiguracionog fajla koju bi trebalo
+  navesti i predstaviti jedan šematski prikaz.
+\item Da li ima suštinskih grešaka i propusta?\\
+  Nema.
+\item Da li je naslov rada dobro izabran?\\
+  Da.
+\item Da li sažetak sadrži prave podatke o radu?\\
+  Da.
+\item Da li je rad lak-težak za čitanje?\\
+  Rad je pitak i lepo ilustrovan uz par primedbi navedenih gore.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+  Jeste. \\
+  Neophodno je razumevanje oblasti:
+  \begin{enumerate}
+      \item Životni ciklus razvoja softvera.
+      \item Version sistemi, prvenstveno git.
+      \item Unit testovi.
+  \end{enumerate}
+\item Da li je u radu navedena odgovarajuća literatura?\\
+  Da.
+\item Da li su u radu reference korektno navedene?\\
+  U radu postoji samo jedna referenca. Potrebno je da svako veće tvrđenje bude podržano
+  sa odgovarajućom referencom. Recimo navodi se da je najznačajnija stvar za jenkins integracija
+  sa sistemom za kontrolu verzija. Zašto to tvrđenje nema referencu a tvrđenje za Unit testove ima?
+\item Da li je struktura rada adekvatna?\\
+  Struktura je adekvatna, ali fale reference.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+  Da.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+  Da, jedino bi valjalo da se pojavljuju malo ranije u tekstu radi lakšeg praćenja.
+  Poslednju tabelu bi trebalo Transponovati. Praksa je da se tabele koje predstavljaju
+  razlike između 2 i više softvera prave tako da jedna opcija odgovara jednom redu.
+\end{enumerate}
+
+
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+d) malo upućeni \\
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+Tokom obrazovanja nisam imao kontakt sa rešenjima kao što su Jenkins.
+Međutim zbog kurseva kao što su: Razvoj softvera 1, 2 i Microsoft kurseva imam 
+dobru ideju o potrebama razvojnih timova.
+
+
+\chapter{Drugi recenzent \odgovor{--- ocena:} }
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+Rad obradjuje temu kontinualne integracije softvera i primenu jednog alata koji se koristi u ovu svrhu, Jenkins. Rad prolazi kroz nameštanje okruženja za rad sa Jenkins alatom, njegove mogućnosti i odnos sa konkurentnim alatima. Objašnjava način funkcionisanja kao i šta je sve potrebno za uspešno korisćenje ovog alata, kako ga podesiti prema svojim potrebama, dok su dati i odredjeni saveti i smernice u kontinualnoj integraciji softvera.
+
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+Pošto nisam upoznat sa temom, za sadržaj nemam zamerki. Tema je obradjena dovoljno dobro da to ne predstavlja problem u praćenju rada.\\
+Jedna stvar koja bi mogla učiniti stvar kvalitetnijim bi bilo nekakvo pomirenje srpske i engleske terminologije. Bilo to kroz uvodjenje rečnika ili definisanje nekih termina, pa njihovo korišćenje u daljem tekstu ili kroz korišćenje isključivo srpske terminologije. Npr, mešovito korišćenje pojmova build (pa kasnije i, recimo,''build-ovanje'', umesto jednostavno bildovanje), i kompajliranje i menjanje engleskih reči kroz padeže ostavlja loš utisak. \\
+Dodatno, neke slike bi mogle biti veće, jer se odredjeni detalji ne vide.\\
+
+U poglavlju 2.2 u opisu napredne opcije ``Block build when upstream project is building'' stoji: sprečava se buildovanje ako je neki projekat koji je zavistan od njega isto u procesu build-ovanja. \\Ako se uzme popularna definicija pojma upstream koji iznačava roditeljsku granu, ova opcija bi trebalo da označava sprečavanje bildovanja ako je neki projekat od koga je trenutni zavistan takodje u procesu bildovanje. Po opisu koji je u tekstu opcije ``Block build when upstream project is building'' i ``Block build when downstream project is building'' se odnose na istu stvar.
+
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+Samo jedna stilska zamerka. Pri opisivanju opcija ne postoji uniforman opis. Negde se navodi akcija koju je potrebno preduzeti dok je negde samo navedeno šta opcija predstavlja.
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\ Da. Moguće je nakon čitanja rada samostalno napraviti i konfigurisati novi Jenkins projekat.
+\item Da li je nešto važno propušteno?\\ Ne.
+\item Da li ima suštinskih grešaka i propusta?\\ Ne
+\item Da li je naslov rada dobro izabran?\\ Imao sam sličan problem sa izborom naslova, i sad vidim da sam mogao da izaberem bolji naslov za svoj rad.
+\item Da li sažetak sadrži prave podatke o radu?\\ Da.
+\item Da li je rad lak-težak za čitanje?\\ Relativno lak. 
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\ Nije potrebno veliko predznanje tema koje rad dotiče da bi se mogao ispratiti. S druge strane, nepoznavanje osnovnih ideja sistema za kontrolu verzija, testiranja jedinica koda i procesa razvoja softvera može bi prepreka tokom čitanja.
+\item Da li je u radu navedena odgovarajuća literatura?\\ Jeste.
+\item Da li su u radu reference korektno navedene?\\ Većina. Ne postoji referenca na sliku 1.
+\item Da li je struktura rada adekvatna?\\ Jeste. Odvojene celine korišćenja Jenkins alata se predstavljanje zasebnim celinama u tekstu.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\ Da. 
+\item Da li su slike i tabele funkcionalne i adekvatne?\\ Tabela bi mogla biti malo preglednija i informativnija. Takodje bi bilo zgodno da postoji malo pojašnjenje šta tabela predstavlja. Komentar o slikama se nalazi u zamerkama
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+Potpuno neupućeni.
+Nikada nisam imao dodir sa alatima ove namene. 
+
+
+\chapter{Treći recenzent \odgovor{--- ocena:} }
+\section{O čemu rad govori?}
+Rad govori o sistemu za integraciju i kontrolu verzija Jenkins koji omogućava kompajliranje, izvršavanje automatskih testove i različite vrste izveštaja performansi. Dolazi sa velikim brojem dodataka od kojih jedan obezbeđuje automatsko prebacivanje projekata nakon kompajliranja na web server.
+
+\section{Krupne primedbe i sugestije}
+Zaključak bi trebalo da se preradi. Samo su navedene pozitivne karakteristike po stavkama. Nema navedenih negativnih karakteristika ili obrazloženja
+za kakve projekte je sistem pogodniji da se koristi a za kakve nije ili poređenje sa drugim sistemima.
+
+U radu je dosta koršćen miks engleskog i srpskog jezika što je za ovakvu temu prirodno ali u nekim slučajevima je moguće prevesti neke 
+termine na srpski jezik.
+
+Rad sadrži dosta slika od kojih možda nisu sve potrebne. 
+\section{Sitne primedbe}
+3. strana:\\
+- štamparska greška: buiild job umesto build job\\
+- rečenica: "Puno opcija koje se nameštaju u okviru slobodnog projekta se javljaju i u ostalim vrstama projekta." bi trebalo da se preradi
+da bi se lakše razumela i bila stilski prikladnija
+
+10. strana:\\
+- štamparska greška: Deploy na dva mesta ima crtu kao Đ
+ 
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+Da, rad adekvatno prikazuje osnovne funkcionalnosti i načine korišćenja sistema.
+\item Da li je nešto važno propušteno?\\
+Milsim da bi trebalo da se posveti više pažnje upoređivanju Jenkins sistema sa drugim sistemima.
+\item Da li ima suštinskih grešaka i propusta?\\
+Nisu primećeni značajniji propusti.
+\item Da li je naslov rada dobro izabran?\\
+Naslov odgovara obrađenoj temi ali bi mogao da bude zvučniji.
+\item Da li sažetak sadrži prave podatke o radu?\\
+Sažetak adekvatno opisuje temu kojom se rad bavi.
+\item Da li je rad lak-težak za čitanje?\\
+Rad nije mnogo težak za čitanje.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+Potrebno je poznavanje osnovnih koncepata razvoja softvera.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+Naveden je samo jedan izvor literature što za seminarski rad nije dovoljno.
+\item Da li su u radu reference korektno navedene?\\
+U radu nedostaju reference. (Referiše se samo na jednom mestu na jedini izvor literature.)
+\item Da li je struktura rada adekvatna?\\
+Struktura rada je adekvatna, rad sadrži sve neophodne celine koje se prirodno nadovezuju jedna na drugu.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+Rad sadrži sve elemente koji su zahtevani i poštuje propisanu formu.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+Tabele i slike su adekvatne osim poslednje tri slike koje su manjih dimenzija i lošijeg kvaliteta.
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+
+U oblast sam malo upućen, osim korišćenja ovakvih sistema na nekoliko studentskih projekata nemam većeg iskustva.
+
+
+\chapter{Četvrti recenzent \odgovor{--- ocena:} }
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+Ovaj rad govori o softverskom alatu Jenkins. To je jedan od najpopularnijih sistema za integraciju softvera. U ovom radu se nalaze detaljni opisi samog funkcionisanja alata, uključujući detalje o kreiranju build joba, integraciji sa izvornim kodom, pokretanju buildova, automatskom testiranju i deplojmentu. Na kraju se govori o razlikama između Jenkinsa i Buildbota, njemu sličnog alata.
+
+
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+Jedina značajnija primedba jeste da bi trebalo pozicioniranje slika malo bolje napraviti. Postoji odeljak u kojem se nalaze četiri do pet slika jedna za drugom i koje su smeštene unutar jednog pasusa, te je potrebno skrolovati više puta kako bi se nastavilo sa čitanjem rečenice.
+
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+Tu i tamo progutano slovo. Iz nekog razloga je engleska reč Deploy pisana sa slovom Đ (Đeploy).
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+	Da - Rad odlično opisuje kako se upotrebljava softverski alat Jenkins od samog početka projekta, pa do njegovog objavljivanja.
+\item Da li je nešto važno propušteno?\\
+	Mislim da nije - Nisam imao prilike da korisim ovaj rezultat, pa nisam siguran da li postoji nešto važno što je možda propušteno.
+\item Da li ima suštinskih grešaka i propusta?\\
+	Nema - Sve greške su trivijalne i mogu se lako ispraviti.
+\item Da li je naslov rada dobro izabran?\\
+	Da - Naslov rada ispravno ukazuje na temu o kojoj se govori.
+\item Da li sažetak sadrži prave podatke o radu?\\
+	Da - Sažetak lepo opisuje o čemu će u ovom radu da se govori.
+\item Da li je rad lak-težak za čitanje?\\
+	Rad je bio lak za čitanje - nije korišćeno previše nepoznatih reči za koje bi bilo potrebno uvesti definicije. Postupci su praćeni slikama.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+	Da - potrebno je poznavati neke opšte pojmove vezanih za razvijanje softvera.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+	Da - U radu je korišćena literatura koja prati ovu temu.
+\item Da li su u radu reference korektno navedene?\\
+	Da -  Svaka referenca (slika, literatura) pokazuje na ispravan deo dokumenta.
+\item Da li je struktura rada adekvatna?\\
+	Da - Struktura rada verno prati formu koja je navedena kao obavezna za ovaj seminarski rad.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+	Da - Ovaj rad sadrži i slike, i tabele i rad ne premašuje, niti mu fali broj strana namenjen za veličinu ovog tima.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+	Jesu - Slike adekvatno prate postupke, dok tabela uspešno ukazuje na razlike između Jenkinsa i Buildbota
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+ e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+
+\chapter{Peti recenznet \odgovor{--- ocena:}}
+\section{O čemu rad govori?}
+Jenkins je alat za integraciju softvera. Sluzi za automatizaciju build-ovanja, testiranje i objavljivanje novih verzija. Build-jobs je glavni pojam u kontinuinarnoj integraciji softvera. Obuhvata sve pocese vezane za rad na projektu. Lako se bira koji će se sitem za kontrolu verzija koristiti. Automatsko testiranje je jedna od bitnih komponeneti Jenkinsa. Najbolji način je da se testovi pisu pre pisanja koda. Najčešće se koriste testovi jedinica, što je ovde i najzastupljeniji pristup.  
+
+\section{Krupne primedbe i sugestije}
+Milsim da je rad korektno napisan. Ali sam misljenja da je potrebno dodatno razraditi teme koje se tiču Testiranja i Deployment-a.  
+
+\section{Sitne primedbe}
+U delu 4. i 4.2 postoji slovna greska tipa -Đeploy, a treba da stoji -Deploy. U delu 4.2 u prvom pasusu postoji greska u znaku interpunkcije " .
+
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\ Odgovara.
+\item Da li je nešto važno propušteno?\\ Potrebano je koristiti više izvora, a ne samo jedan koji je naveden u literaturi. Kako bi se stekla šira slika a ne samo pojedinačno mišljenje. 
+\odgovor{Ubačena je refernca na dokumentaciju samog softvera.}
+\item Da li ima suštinskih grešaka i propusta?\\ Nema.
+\item Da li je naslov rada dobro izabran?\\ Jeste. 
+\item Da li sažetak sadrži prave podatke o radu?\\ Sadrži.
+\item Da li je rad lak-težak za čitanje?\\ Lak je za čitanje.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\ Potreban je jako mali nivo predznanja.
+\item Da li je u radu navedena odgovarajuća literatura?\\ Jeste. 
+\item Da li su u radu reference korektno navedene?\\ Jesu.
+\item Da li je struktura rada adekvatna?\\ Jeste. 
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\ Da, sadrži sve elemente.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\ Jesu.
+\end{enumerate}
+
+\section{Ocenite sebe}
+Vrlo malo sam upućena u ovu oblast. 
+
+\chapter{Dodatne izmene}
+%Ovde navedite ukoliko ima izmena koje ste uradili a koje vam recenzenti nisu tražili. 
+
+\end{document}
+
+
+\grid
