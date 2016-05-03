@@ -26,7 +26,7 @@
 \maketitle
 
 \abstract{
-Danas kada se softver razvija sve većom brzinom, timovi programera sve više rastu, a klijenti sve zahtevniji, potrebno je imati sistem koji integriše raznolike alate koji se koriste od pisanja prve linije k\^oda do finalnog proizvoda koji se isporučuje klijentu. Jedan od najpopularnijih sistema za integraciju softvera je Jenkins. On automatizuje procese bildovanja, testiranja, i depoloyment-a. U ovom radu pokušaćemo da ``zagrebemo'' površinu ovog složenog sistema i u kratkim crtama opišemo postupak korišćenja.
+Danas kada se softver razvija sve većom brzinom, timovi programera sve više rastu, a klijenti sve zahtevniji, potrebno je imati sistem koji integriše raznolike alate koji se koriste od pisanja prve linije k\^oda do finalnog proizvoda koji se isporučuje klijentu. Jedan od najpopularnijih sistema za integraciju softvera je Jenkins. On automatizuje procese build-ovanja, testiranja, i dipolojmenta. U ovom radu pokušaćemo da predstavimo  suštinu složenog sistema i u kratkim crtama opišemo postupak korišćenja.
 
 \tableofcontents
 
@@ -35,19 +35,19 @@ Danas kada se softver razvija sve većom brzinom, timovi programera sve više ra
 \section{Uvod}
 \label{sec:uvod}
 
-Jenkins je softverski alat za kontinuiranu integraciju softvera (eng.~{\em Continuous software integration}) napisan na Java programskom jeziku. Jenkins omogucava timovima da se fokusiraju na posao tako što automatizuje proces bildovanja, testiranja i objavljivanja novih verzija softvera. Ono što jenkins izdvaja je to što postoji bogata baza dodataka (eng.~{\em Plugins}), lako razvijanje sopstvenih dodataka i podržan je od strane  velike zajednice.
+Jenkins je softverski alat za kontinuiranu integraciju softvera (eng.~{\em Continuous software integration}) napisan na Java programskom jeziku. Jenkins omogucava timovima da se fokusiraju na posao tako što automatizuje proces build-ovanja, testiranja i objavljivanja novih verzija softvera. Ono što jenkins izdvaja je to što postoji bogata baza dodataka (eng.~{\em Plugins}), lako razvijanje sopstvenih dodataka i podržan je od strane  velike zajednice.
 \
 Originalno je razvijan kao Hudson projekat u okviru Sun Microsistems-a. Krajem 2010-te godine došlo je do nesuglasica između originalnih razvijaoca i Oracla koja su rezultirala izdvajanja projekta i promenom imena iz Hudson u Jenkins. Oracle je nastavio da razvija Hudson i smatra Jenkins kao poseban projekat, a ne kao promenu imena. 
 
 
-Kontinuirana integracija (\ref{fig:kontinuirana_integracija_softvera}) predstavlja način razvijanja softvera gde članovi tima objedinjuju svoj kod na dnevnom nivou. Svako objedinjavanje je potvrđeno od strane automatskog bildovanja i testiranja kako bi se detektovale greške što je brže moguće. Svaka promena mora proći kroz sve korake validacije na svom putu ka objavljivanju. Ovakav pristup smanjuje cenu projekta, vreme uloženo i rizik pri konstantnim objavama novih verzija. 
+Kontinuirana integracija predstavlja način razvijanja softvera gde članovi tima objedinjuju svoj kod na dnevnom nivou. Svako objedinjavanje je potvrđeno od strane automatskog build-ovanja i testiranja kako bi se detektovale greške što je brže moguće. Svaka promena mora proći kroz sve korake validacije na svom putu ka objavljivanju. Ovakav pristup smanjuje cenu projekta, vreme uloženo i rizik pri konstantnim objavama novih verzija. 
 
 
 
 Prilikom svakog objedinjavanja, sistem je:
 \begin{itemize}
 \item Integrisan - sve promene do tog trenutka su objedinjene u projekat
-\item Bildovan - kod je kompajliran u paket ili u izvršni fajl
+\item Build-ovan - kod je kompajliran u paket ili u izvršni fajl
 \item Testiran - pokreću se automatski testovi
 \item Arhiviran - verzionisan i sačuvan kako bi se distribuirano(ako se to želi)
 \item Primenjen - učitan na sistem gde developeri mogu da interaktuju sa najnovijim promenama
@@ -58,7 +58,7 @@ Prilikom svakog objedinjavanja, sistem je:
 \includegraphics[scale=0.75, totalheight=0.35\textheight]{slike/workflow.png}
 \end{center}
 \caption{Kontinuirana integracija softvera}
-\label{fig:kontinuirana_integracija_softvera}
+\label{fig:Kontinuirana integracija softvera}
 \end{figure}
 
 

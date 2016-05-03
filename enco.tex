@@ -1,7 +1,7 @@
 \section{Automatsko testiranje}
 Jedna od bitnih aktivnost u ciklusu je automatsko testiranje softvera \cite{jenkins:2011}. Automatsko testiranje značajno unapređuje razvojni proces. Ovakvi testovi daju sigurnost da nove izmene u kodu neće pogoršati stabilnost sistema, kao i da će funkcionalnosti koje su do tada radile, nastaviti da rade. Timovi treba da ulažu u pisanje testova jer se njima podiže kvalitet proizvoda, a cena testiranja je mnogo manja u odnosu na kasnije ispravke. 
 
-Najefikasniji pristup pisanja dobrih testova je da se testovi pišu na početku, pre pisanja samog k\^oda. Ovakva tehnika se naziva razvoj vođen testovima (eng.~{\em Test Driven Development}). U te svrhe se najčešće koriste testovi jedinica (eng.~{\em Unit tests}). 
+Najefikasniji pristup pisanja dobrih testova je da se testovi pišu na početku, pre pisanja samog k\^oda. Ovakva tehnika se naziva razvoj vođen testovima (eng.~{\em Test Driven Development}). U te svrhe se najčešće koriste testovi jedinica (eng.~{\em Unit tests})\cite{docs:unit}. 
 
 U ovom poglavlju ćemo pokazati kako se u Jenkins može integrisati automatsko testiranje. Iako postoji mnogo različitih načina za testiranje softvera, držaćemo se uglavnom testova jedinica jer smatramo da je takav pristup testiranju najzastupljeniji.
 
@@ -13,7 +13,7 @@ Postoje različiti testovi jedinica za razne jezike. Najpoznatija grupa testova 
 Automatsko testiranje se izvršava kao jedna od operacija build procesa. Pošto je izlaz testiranja XML datoteka, jedino što preostaje da se uradi je da se konfiguraciji projekta postavi putanja do izlazne XML datoteke.
 
 \subsubsection{Konfigurisanje test izveštaja i prikazivanje rezultata}
-Prvo je potrebno dodati novu post-build akciju. Iz padajućeg menija treba izabrati "Publish JUnit test result report". Jenkins dolazi sa preinstaliranim dodatkom za JUnit test izveštaje. Ako je projekat testiran u nekom drugom \textit{x}Unit alatu, potrebno je instalirati plugin koji se zove "xUnit" i njega koristiti. Od konfiguracije build menadžera zavisi putanja XML izveštaja. Tu putanju upisujemo u polje "Test report XMLs", kao što je prikazano na slici \ref{fig:test_xml_path}. 
+Prvo je potrebno dodati novu post-build akciju. Iz padajućeg menija treba izabrati ``Publish JUnit test result report``. Jenkins dolazi sa preinstaliranim dodatkom za JUnit test izveštaje. Ako je projekat testiran u nekom drugom \textit{x}Unit alatu, potrebno je instalirati plugin koji se zove ``xUnit`` i njega koristiti. Od konfiguracije build menadžera zavisi putanja XML izveštaja. Tu putanju upisujemo u polje ``Test report XMLs``, kao što je prikazano na slici \ref{fig:test_xml_path}. 
 
 \begin{figure}[h!]
 \begin{center}
