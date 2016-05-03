@@ -24,24 +24,7 @@
 \maketitle
 \tableofcontents
 
-\chapter{Uputstva}
-\emph{Prilikom redavanja odgovora na recenziju, obrišite ovo poglavlje.}
-
-Neophodno je odgovoriti na sve zamerke koje su navedene u okviru recenzija. Svaki odgovor pišete u okviru okruženja \verb"\odgovor", \odgovor{kako bi vaši odgovori bili lakše uočljivi.} 
-\begin{enumerate}
-
-\item Odgovor treba da sadrži na koji način ste izmenili rad da bi adresirali problem koji je recenzent naveo. Na primer, to može biti neka dodata rečenica ili dodat pasus. Ukoliko je u pitanju kraći tekst onda ga možete navesti direktno u ovom dokumentu, ukoliko je u pitanju duži tekst, onda navedete samo na kojoj strani i gde tačno se taj novi tekst nalazi. Ukoliko je izmenjeno ime nekog poglavlja, navedite na koji način je izmenjeno, i slično, u zavisnosti od izmena koje ste napravili. 
-
-\item Ukoliko ništa niste izmenili povodom neke zamerke, detaljno obrazložite zašto zahtev recenzenta nije uvažen.
-
-\item Ukoliko ste napravili i neke izmene koje recenzenti nisu tražili, njih navedite u poslednjem poglavlju tj u poglavlju Dodatne izmene.
-\end{enumerate}
-
-Za svakog recenzenta dodajte ocenu od 1 do 5 koja označava koliko vam je recenzija bila korisna, odnosno koliko vam je pomogla da unapredite rad. Ocena 1 označava da vam recenzija nije bila korisna, ocena 5 označava da vam je recenzija bila veoma korisna. 
-
-NAPOMENA: Recenzije ce biti ocenjene nezavisno od vaših ocena. Na osnovu recenzije ja znam da li je ona korisna ili ne, pa na taj način vama idu negativni poeni ukoliko kažete da je korisno nešto što nije korisno. Vašim kolegama šteti da kažete da im je recenzija korisna jer će misliti da su je dobro uradili, iako to zapravo nisu. Isto važi i na drugu stranu, tj nemojte reći da nije korisno ono što jeste korisno. Prema tome, trudite se da budete objektivni. 
-
-\chapter{Prvi recenzent \odgovor{--- ocena:} }
+\chapter{Prvi recenzent \odgovor{--- ocena: 4} }
 
 \section{O čemu rad govori?}
 Rad opisuje osnovne mogućnosti softverskog paketa Jenkins koji automatizuje
@@ -58,6 +41,8 @@ Opis opcije parametrizovane izgradnje (\textit{eng. parametrized build}) treba
 dopuniti konkretnijim primerima. Neupućenom čitaocu je teško razumeti kakve kakve su
 to opcije koje se prosleđuju i koji format bi bio pogodniji za koju situaciju.
 
+\odgovor{Što se tiče \textit{"eng. pipeline"} pristupa, za to postoji plugin i to je jedna od mnogih bitnih stvari(bitnih kako za koga jer svako pravi jenkins kako mu odgovara).}
+
 \section{Sitne primedbe}
 Rad se u nekim trenucima čini kao kratak tutorijal za početnike umesto uopštenog
 pregleda mogućnosti. Navođenje detalja kao što su opisi instalacije proširenja
@@ -71,7 +56,7 @@ Trebalo bi izbegavati rečenice kao što su:
 Postoji nekoliko sitnih grešaka pri kucanju.
 
 
-\odgovor{Rad je namerno pisan kao kao kratko ``uputstvo za korisnike``, sto je navedeno i u sazetku, jer smatramo da je tako mnogo bolje zainteresovati čitalaca. Smatramo da seminarski rad ne treba da bude suvoparno nabrajanje mogućnosti softvera već kratak uvod u neku temu. Za opisivanje svih mogućnosti služe radovi većeg obima (npr. knjige). Sugestija vezana za poslednju rečenicu sažetka je prihvaćena.}
+\odgovor{Rad je namerno pisan kao kao kratko ``uputstvo za korisnike``, sto je navedeno i u sažetku, jer smatramo da je tako mnogo bolje zainteresovati čitalaca. Smatramo da seminarski rad ne treba da bude suvoparno nabrajanje mogućnosti softvera već kratak uvod u neku temu. Za opisivanje svih mogućnosti služe radovi većeg obima (npr. knjige). Sugestija vezana za poslednju rečenicu sažetka je prihvaćena. Što se tiče \textit{"eng. pipeline"} pristupa, za to postoji plugin i to je jedna od mnogih bitnih stvari(bitnih kako za koga jer svako pravi jenkins kako mu odgovara).}
 
 
 \section{Provera sadržajnosti i forme seminarskog rada}
@@ -132,7 +117,7 @@ Međutim zbog kurseva kao što su: Razvoj softvera 1, 2 i Microsoft kurseva imam
 dobru ideju o potrebama razvojnih timova.
 
 
-\chapter{Drugi recenzent \odgovor{--- ocena:} }
+\chapter{Drugi recenzent \odgovor{--- ocena:3} }
 \section{O čemu rad govori?}
 % Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
 Rad obradjuje temu kontinualne integracije softvera i primenu jednog alata koji se koristi u ovu svrhu, Jenkins. Rad prolazi kroz nameštanje okruženja za rad sa Jenkins alatom, njegove mogućnosti i odnos sa konkurentnim alatima. Objašnjava način funkcionisanja kao i šta je sve potrebno za uspešno korisćenje ovog alata, kako ga podesiti prema svojim potrebama, dok su dati i odredjeni saveti i smernice u kontinualnoj integraciji softvera.
@@ -145,9 +130,13 @@ Dodatno, neke slike bi mogle biti veće, jer se odredjeni detalji ne vide.\\
 
 U poglavlju 2.2 u opisu napredne opcije ``Block build when upstream project is building'' stoji: sprečava se buildovanje ako je neki projekat koji je zavistan od njega isto u procesu build-ovanja. \\Ako se uzme popularna definicija pojma upstream koji iznačava roditeljsku granu, ova opcija bi trebalo da označava sprečavanje bildovanja ako je neki projekat od koga je trenutni zavistan takodje u procesu bildovanje. Po opisu koji je u tekstu opcije ``Block build when upstream project is building'' i ``Block build when downstream project is building'' se odnose na istu stvar.
 
+\odgovor{Ispravljena greška u vezi reference na prvu sliku. Ispravljeno mešovito korišćenje reči build(build-ovanje, build-ovan). I rečenice u poglavlju 2.2 su preformulisane tako da budu razumnije.}
+
 \section{Sitne primedbe}
 % Напишете своја запажања на тему штампарских-стилских-језичких грешки
 Samo jedna stilska zamerka. Pri opisivanju opcija ne postoji uniforman opis. Negde se navodi akcija koju je potrebno preduzeti dok je negde samo navedeno šta opcija predstavlja.
+
+\odgovor{Kod nekih opcija je potrebno zadati neki parametar dok je neke opcije moguće samo čekirati.}
 
 \section{Provera sadržajnosti i forme seminarskog rada}
 % Oдговорите на следећа питања --- уз сваки одговор дати и образложење
@@ -180,7 +169,7 @@ Potpuno neupućeni.
 Nikada nisam imao dodir sa alatima ove namene. 
 
 
-\chapter{Treći recenzent \odgovor{--- ocena:} }
+\chapter{Treći recenzent \odgovor{--- ocena: 4} }
 \section{O čemu rad govori?}
 Rad govori o sistemu za integraciju i kontrolu verzija Jenkins koji omogućava kompajliranje, izvršavanje automatskih testove i različite vrste izveštaja performansi. Dolazi sa velikim brojem dodataka od kojih jedan obezbeđuje automatsko prebacivanje projekata nakon kompajliranja na web server.
 
@@ -192,6 +181,9 @@ U radu je dosta koršćen miks engleskog i srpskog jezika što je za ovakvu temu
 termine na srpski jezik.
 
 Rad sadrži dosta slika od kojih možda nisu sve potrebne. 
+
+\odgovor{Postoji poređenje sa Buildbotom.}
+
 \section{Sitne primedbe}
 3. strana:\\
 - štamparska greška: buiild job umesto build job\\
@@ -200,6 +192,8 @@ da bi se lakše razumela i bila stilski prikladnija
 
 10. strana:\\
 - štamparska greška: Deploy na dva mesta ima crtu kao Đ
+
+\odgovor{Ispravljena greška sa slovom Đ i greška na trećoj strani. Rečenica na trećoj strani nije menjana.}
  
 
 \section{Provera sadržajnosti i forme seminarskog rada}
@@ -244,7 +238,7 @@ Tabele i slike su adekvatne osim poslednje tri slike koje su manjih dimenzija i 
 U oblast sam malo upućen, osim korišćenja ovakvih sistema na nekoliko studentskih projekata nemam većeg iskustva.
 
 
-\chapter{Četvrti recenzent \odgovor{--- ocena:} }
+\chapter{Četvrti recenzent \odgovor{--- ocena: 3} }
 \section{O čemu rad govori?}
 % Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
 Ovaj rad govori o softverskom alatu Jenkins. To je jedan od najpopularnijih sistema za integraciju softvera. U ovom radu se nalaze detaljni opisi samog funkcionisanja alata, uključujući detalje o kreiranju build joba, integraciji sa izvornim kodom, pokretanju buildova, automatskom testiranju i deplojmentu. Na kraju se govori o razlikama između Jenkinsa i Buildbota, njemu sličnog alata.
@@ -257,6 +251,8 @@ Jedina značajnija primedba jeste da bi trebalo pozicioniranje slika malo bolje 
 \section{Sitne primedbe}
 % Напишете своја запажања на тему штампарских-стилских-језичких грешки
 Tu i tamo progutano slovo. Iz nekog razloga je engleska reč Deploy pisana sa slovom Đ (Đeploy).
+
+\odgovor{Ispravljena greška sa slovom Đ}
 
 \section{Provera sadržajnosti i forme seminarskog rada}
 % Oдговорите на следећа питања --- уз сваки одговор дати и образложење
@@ -298,7 +294,7 @@ Tu i tamo progutano slovo. Iz nekog razloga je engleska reč Deploy pisana sa sl
 % f) potpuno neupućeni
 % Obrazložite svoju odluku
 
-\chapter{Peti recenznet \odgovor{--- ocena:}}
+\chapter{Peti recenznet \odgovor{--- ocena: 3}}
 \section{O čemu rad govori?}
 Jenkins je alat za integraciju softvera. Sluzi za automatizaciju build-ovanja, testiranje i objavljivanje novih verzija. Build-jobs je glavni pojam u kontinuinarnoj integraciji softvera. Obuhvata sve pocese vezane za rad na projektu. Lako se bira koji će se sitem za kontrolu verzija koristiti. Automatsko testiranje je jedna od bitnih komponeneti Jenkinsa. Najbolji način je da se testovi pisu pre pisanja koda. Najčešće se koriste testovi jedinica, što je ovde i najzastupljeniji pristup.  
 
@@ -308,6 +304,7 @@ Milsim da je rad korektno napisan. Ali sam misljenja da je potrebno dodatno razr
 \section{Sitne primedbe}
 U delu 4. i 4.2 postoji slovna greska tipa -Đeploy, a treba da stoji -Deploy. U delu 4.2 u prvom pasusu postoji greska u znaku interpunkcije " .
 
+\odgovor{Ispravljena greška sa slovom Đ i sa interpunkcijskim znakom.}
 
 \section{Provera sadržajnosti i forme seminarskog rada}
 
@@ -332,6 +329,7 @@ Vrlo malo sam upućena u ovu oblast.
 
 \chapter{Dodatne izmene}
 %Ovde navedite ukoliko ima izmena koje ste uradili a koje vam recenzenti nisu tražili. 
+\odgovor{U sekciji ''Kreiranje Build Job-a'' promenjeno je da postoji pet vrsta projekta, a ne četiri. Tabela je promenjena tako da bude preglednija.}
 
 \end{document}
 
