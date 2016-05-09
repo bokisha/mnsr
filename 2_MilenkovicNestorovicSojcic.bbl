@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{docs:unit}
+{Jenkins wiki (Unit testing)}.
+\newblock on-line at:
+  \url{https://wiki.jenkins-ci.org/display/JENKINS/Unit+Test}.
+
+\bibitem{jenkins:2011}
+John~Ferguson Smart.
+\newblock {\em {Jenkins: The Definitive Guide}}.
+\newblock O'Reilly Media, 2011.
+
+\end{thebibliography}
