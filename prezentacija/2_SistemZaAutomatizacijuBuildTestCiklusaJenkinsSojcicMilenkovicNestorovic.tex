@@ -1,6 +1,6 @@
 \documentclass[10pt]{beamer}
 
-\usetheme{metropolis}
+\usetheme[progressbar=head]{metropolis}
 \usepackage{appendixnumberbeamer}
 
 \usepackage{booktabs}
@@ -12,44 +12,73 @@
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
-\title{Metropolis}
-\subtitle{A modern beamer theme}
+
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage[english,serbian]{babel}
+
+\definecolor{Teal}{HTML}{004D40}
+\definecolor{Orange}{HTML}{FF6D00}
+
+% Theme colors are derived from these two elements
+\setbeamercolor{alerted text}{fg=Orange}
+
+% ... however you can of course override styles of all elements
+\setbeamercolor{frametitle}{bg=Teal}
+
+
+\title{Jenkins ukratko}
+\subtitle{Sistem za automatizaciju build/test ciklusa}
 \date{\today}
-\author{Matthias Vogelgesang}
-\institute{Center for modern beamer themes}
-% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+\author{Nikola Sojčić, Uroš Milenković, Bojan Nestorović}
+\institute{Matematički fakultet, Univerzitet u Beogradu}
+\titlegraphic{\hfill\includegraphics[height=1.5cm]{logo-matf.jpg}}
 
 \begin{document}
 
 \maketitle
 
-\begin{frame}{Table of contents}
+\begin{frame}{Sadržaj}
   \setbeamertemplate{section in toc}[sections numbered]
   \tableofcontents[hideallsubsections]
 \end{frame}
 
-\section{Introduction}
+\section{Automatsko testiranje}
 
-\begin{frame}[fragile]{Metropolis}
+\begin{frame}[fragile]{Automatsko testiranje}
 
-  The \themename theme is a Beamer theme with minimal visual noise
-  inspired by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer
-  Theme} by Benjamin Weiss.
+        
+        \begin{itemize}
+            \item Bitna aktivnost u ciklusu \cite{jenkins:2011}
+            \item Razvoj vođen testovima (eng.~{\em Test Driven Development})
+            \item Testovi jedinica (eng.~{\em Unit tests})\cite{docs:unit}
+            \begin{itemize}
+                \item JUnit
+                \item \alert{\emph{x}Unit}
+            \end{itemize}
+            \item Standardizovan \texttt{XML} izveštaj za testove jedinica
+        \end{itemize}
 
-  Enable the theme by loading
-
-  \begin{verbatim}    \documentclass{beamer}
-    \usetheme{metropolis}\end{verbatim}
-
-  Note, that you have to have Mozilla's \emph{Fira Sans} font and XeTeX
-  installed to enjoy this wonderful typography.
 \end{frame}
-\begin{frame}[fragile]{Sections}
-  Sections group slides of the same topic
+\begin{frame}[fragile]{Uključivanje testova jedinica u proces}    
+      Prikazivanje rezultata testova
+      \begin{enumerate}
+        \item Dodati novu post--build akciju 
+        \item Izabrati ``Publish JUnit test result report`` 
+        \item Upisati putanju do \texttt{XML} izveštaja u ``Test report XMLs``
+        \item Pogledati grafikone na početnoj strani
+      \end{enumerate}
+\end{frame}
 
-  \begin{verbatim}    \section{Elements}\end{verbatim}
-
-  for which \themename provides a nice progress indicator \ldots
+\begin{frame}[fragile]{Pokrivenost k\^oda}
+    \begin{itemize}
+        \item Metrika koja se ceni u testiranju softvera
+        \item Ne daje značajnu informaciju o kvalitetu napisanog k\^oda već koliki deo k\^oda je pokriven testovima jedinica
+        \item Cobertura za Javu
+        \item Neki alati za \emph{x}Unit testove imaju ugrađene sisteme za pokrivenost k\^oda 
+        \begin{itemize}
+            \item Dodaci su uglavnom pametni da mogu da prepoznaju ugrađene sisteme i da ih konfigurišu za Jenkins
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 \section{Titleformats}
@@ -290,7 +319,7 @@ or show \textbf{bold} results.\end{verbatim}
 }
 
 \begin{frame}{References}
-  Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
+  %Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
 \end{frame}
 
 \section{Conclusion}
