@@ -1,7 +1,7 @@
 ##Bildovanje prezentacije
 ```bash
-make
-./build
+$ make
+$ ./build
 ```
 
 ## Metropolis
