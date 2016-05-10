@@ -1,3 +1,9 @@
+##Bildovanje prezentacije
+```bash
+make
+./build
+```
+
 ## Metropolis
 
 
