@@ -37,9 +37,31 @@
 
 \maketitle
 
-\begin{frame}{Sadržaj}
-  \setbeamertemplate{section in toc}[sections numbered]
-  \tableofcontents[hideallsubsections]
+\begin{frame}[fragile]{Posao izgradnje}
+  \begin{itemize}
+            \item Kreiranje posla izgradnje
+            \item Integracija sa sistemom za kontrolu verzija
+            \item Pokretanje izgradnje
+			\item Koraci izgradnje
+            \item Akcije posle izgradnje
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Integracija sa sistemom za kontrolu verzija}
+  \begin{itemize}
+            \item Subversion
+            \item CVS
+            \item Git - \alert{\emph{mora se instalirati dodatak}}
+			\item i ostali
+  \end{itemize}            
+\end{frame}
+
+\begin{frame}[fragile]{Pokretanje izgradnje}
+  \begin{itemize}
+            \item Build periodically - pokretanje u određenom vremenskom intervalu
+            \item Poll SCM - pokretanje posle promena izvornog koda
+            \item Build after other projects are built - pokretanje izgradnje nakon pokretanja druge izgradnje
+  \end{itemize}
 \end{frame}
 
 \section{Automatsko testiranje}
